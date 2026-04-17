@@ -1,0 +1,30 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    container_name: sqlserver_db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Umg2026
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+      - ./backups:/var/opt/mssql/backups
+      - ./database:/docker-entrypoint-initdb.d
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: node_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - sqlserver
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    restart: always
+
+volumes:
+  sql_data:
