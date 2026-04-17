@@ -1,5 +1,88 @@
+# =========================
+
+# Node.js
+
+# =========================
+
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+
+# Environment variables
+
+# =========================
+
 .env
+.env.*
+!.env.example
+
+# =========================
+
+# Logs
+
+# =========================
+
+logs/
 *.log
+
+# =========================
+
+# OS files
+
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+
+# Editor / IDE
+
+# =========================
+
+.vscode/
+.idea/
+*.swp
+
+# =========================
+
+# Docker
+
+# =========================
+
+docker-compose.override.yml
+
+# Volúmenes locales (MUY importante no subir esto)
+
+sql_data/
 *.bak
-*.trn
+
+# =========================
+
+# Build / cache
+
+# =========================
+
+dist/
+build/
+.cache/
+
+# =========================
+
+# Coverage
+
+# =========================
+
+coverage/
+
+# =========================
+
+# Misc
+
+# =========================
+
+*.tmp
+*.temp
